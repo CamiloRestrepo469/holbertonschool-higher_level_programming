@@ -3,7 +3,7 @@
 i = 0
 while i <= 99:
     if i == 99:
-        print("{:d}".format(i), end='')
+        print("{}".format(i), end=''"\n")
     else:
-        print("{:d}".format(i), end=', ')
+        print("{:02d}".format(i), end=', ')
     i += 1
