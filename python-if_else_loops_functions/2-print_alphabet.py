@@ -10,4 +10,3 @@ while i != 97:
     caracter = chr(i)
     # Lo que quieras hacer
     i += 1
-
