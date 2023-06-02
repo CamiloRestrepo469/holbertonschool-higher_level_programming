@@ -2,5 +2,5 @@
 
 i = 0
 while i <= 99:
-    print(i, end=', ')
+    print("{:d}".format(i), end=', ')
     i += 1
