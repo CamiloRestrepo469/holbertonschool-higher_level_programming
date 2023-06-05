@@ -10,8 +10,9 @@
 
 
 def print_list_integer(my_list=[]):
-        cadena = " ".join(str(num) for num in my_list)
-        print(cadena)
+    for i in my_list:
+        print("{}".format(i))
+       
 
 
 
