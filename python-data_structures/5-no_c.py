@@ -6,5 +6,5 @@ def no_c(my_string):
     for i in my_string:
         if i != 'c' and i != 'C':
             c_str += i
-        
+
     return(c_str)
