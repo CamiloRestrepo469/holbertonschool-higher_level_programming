@@ -7,7 +7,7 @@ def safe_print_integer(value):
         return True
     # Devolver True si el valor
     # es un entero y se imprime correctamente
-    except Exception:
+    except (ValueError, TypeError):
         # Capturar cualquier excepción que
         # pueda ocurrir durante la impresión
         return False
