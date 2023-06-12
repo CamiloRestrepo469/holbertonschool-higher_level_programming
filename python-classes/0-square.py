@@ -1,4 +1,5 @@
 #!/usr/bin/python3
 
 class Square(object):
-    dict = {}
+    def __init__(self):
+        self = {} #
