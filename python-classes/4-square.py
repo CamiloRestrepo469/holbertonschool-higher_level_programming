@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 class Square:
     """Represent a square."""
 
@@ -23,10 +24,16 @@ class Square:
             value (int): The new size of the square.
         """
         if not isinstance(value, int):
+            """si not of type int raises TypeError"""
             raise TypeError("size must be an integer")
         elif value < 0:
+            """de lo contrario raise valueError"""
             raise ValueError("size must be >= 0")
         self.__size = value
 
     def area(self):
+        """Get the area of the square
+
+     returns the area of the square
+       """
         return self.__size**2
