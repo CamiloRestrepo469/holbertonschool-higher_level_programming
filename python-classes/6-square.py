@@ -47,12 +47,16 @@ class Square:
             position (tuple): The new position of the square.
                               Should be a tuple of 2 positive integers.
         """
-        if not isinstance(value, tuple) or len(value) != 2:
-            """not is tuple of 2 positive integers"""
-            raise TypeError("position must be a tuple of 2 integers")
-        elif not all(isinstance(coord, int) and coord >= 0 for coord in value):
-            """not coord >= 0 imprime  ValueError"""
-            raise ValueError("position must contain positive integers")
+        #if not isinstance(value, tuple) or len(value) != 2:
+        if not isinstance(value, tuple) or len(value) != 2 or \
+                not all(isinstance(i, int) for i in value) or \
+                not all(i >= 0 for i in value):
+                    raise TypeError("position must be a tuple of 2 positive integers")
+            #"""not is tuple of 2 positive integers"""
+            #raise TypeError("position must be a tuple of 2 integers")
+        #elif not all(isinstance(coord, int) and coord >= 0 for coord in value):
+            #"""not coord >= 0 imprime  ValueError"""
+            #raise ValueError("position must contain positive integers")
         self.__position = value
 
     def area(self):
@@ -60,7 +64,7 @@ class Square:
 
         returns the area of the square
         """
-        return self.__size**2
+        return self.__size ** 2
 
     def my_print(self):
         """Print the square using '#' character and position."""
