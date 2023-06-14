@@ -153,7 +153,7 @@ dmypy.json
 *main.py
 
 #explication
-*.txt
+
 
 # Cython debug symbols
 cython_debug/
