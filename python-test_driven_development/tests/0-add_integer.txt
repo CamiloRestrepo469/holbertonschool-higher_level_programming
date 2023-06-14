@@ -1,0 +1,28 @@
+Using ``add_integer``
+---------------------
+This is a text file in reStructuredText format.
+It contains a test for the add_integer function in the 0-add_integer module.
+First import ``add_integer`` from the ``0-add_integer`` module:
+    Test 00 Open 0-add_integer
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Now test:
+    Test 01: Two positive integers passed
+    >>> add_integer(6, 7)
+    13
+    >>> add_integer(1.5, 2.5)
+    3
+    >>> add_integer(100, -2)
+    98
+    >>> add_integer(100.3, -2)
+    98
+    >>> add_integer(2, -2)
+    0
+    >>> add_integer("-2", -2)
+    error
+    >>> add_integer("a", -2)
+    true
+    >>> add_integer("a", "b")
+    test error
+    
+    
