@@ -5,6 +5,7 @@ Define print # in multiple lines
 
 
 def print_square(size):
+    """Define loop print and validate"""
     if not isinstance(size, int):
         raise TypeError('size must be an integer')
     elif not isinstance(size, int) or size < 0:
