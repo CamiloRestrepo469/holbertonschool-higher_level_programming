@@ -1,0 +1,39 @@
+Using ``say_my_name``
+---------------------
+This is a text file in reStructuredText format.
+It contains a test for the say_my_name function in the 3-say_my_nam module.
+First import ``say_my_name`` from the ``3-say_my_nam`` module:
+    Test 00 Open 0-add_integer
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+    >>> matrix = [[1, 2, 3],[4, 5, 6]]
+
+Now test:
+    Test 01: One matrix integers passed
+    >>> say_my_name(matrix, 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+    Test 02: One matrix divide zero passed
+    >>> matrix_divided(matrix, 0)
+    Traceback (most recent call last):
+    ...
+    ZeroDivisionError: division by zero
+
+    Test 03: One matrix divide  tring
+    >>> matrix_divided(matrix, 'hello')
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+
+    Test 04: One matrix divide None
+    >>> matrix_divided(matrix, None)
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+
+    Test 05: One matrix dot list
+    >>> matrix = 'hello'
+    >>> matrix_divided(matrix, None)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
