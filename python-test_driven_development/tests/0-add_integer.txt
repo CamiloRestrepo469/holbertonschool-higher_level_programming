@@ -8,24 +8,28 @@ First import ``add_integer`` from the ``0-add_integer`` module:
 
 Now test:
     Test 01: Two positive integers passed
-    >>> add_integer(6, 7)
-    13
+    >>> add_integer(3, 5)
+    8
+    
+    Test 02: Two zeros passed
+    >>> add_integer(0, 0)
+    0
 
-    Test 02: two float passed
-    >>> add_integer(1.5, 2.5)
-    3
-
-    Test 03: two integer passed one negative integer
-    >>> add_integer(100, -2)
+    Test 03: Only one zero passed  
+    >>> add_integer(0)
     98
 
-    Test 04: one float and one negative integer passed
-    >>> add_integer(100.3, -2)
-    98
-
-    Test 05: one integer, and one negative integer passed
+    Test 04: One positive and one negative passed    
     >>> add_integer(2, -2)
     0
+
+    Test 05: One negative and one positive passed    
+    >>> add_integer(-2, 2)
+    0
+
+    Test 06: Only one positive passed  
+    >>> add_integer(2)
+    100
 
     Test 07: Two characters passed  
     >>> add_integer('a','b')
