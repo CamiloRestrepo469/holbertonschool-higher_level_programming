@@ -7,8 +7,36 @@ First import ``say_my_name`` from the ``3-say_my_nam`` module:
     >>> say_my_name = __import__('3-say_my_name').say_my_name
 
 Now test:
-    Test 01: print say_my_nam()
-    >>> say_my_nam()
+    Test 01: zero arguments passed
+    >>> say_my_name()
+    Traceback (most recent call last):
+    ...
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+    Test 02: One integer with str passed
+    >>> say_my_name(4, 'hello')
     Traceback (most recent call last):
     ...
     TypeError: first_name must be a string
+
+    Test 03: One None and str passed
+    >>> say_my_name(None, 'hello')
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+    Test 04: test the two arguments being numbers
+    >>> say_my_name(3, 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+    Test 05: test arguments being strings
+    >>> say_my_name("Camilo", "Restrepo")
+    My name is Camilo Restrepo
+
+    Test 06: test second argument being Null
+    >>> say_my_name("Camilo", None)
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string
