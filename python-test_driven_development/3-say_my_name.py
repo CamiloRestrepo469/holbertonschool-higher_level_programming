@@ -34,8 +34,8 @@ def say_my_name(first_name, last_name=""):
     if first_name:
         """_summary_
         """
-        print("My name is {}".format(first_name))
+        print("My name is {} {}".format(first_name,last_name))
     else:
         """_summary_
         """
-        print("My name is {}".format(last_name))
+        print("{}".format(last_name))
