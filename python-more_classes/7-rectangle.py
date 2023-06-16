@@ -71,12 +71,13 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
+        """Print string good to view"""
         if self.__width == 0 or self.__height == 0:
             return ""
         rect_str = ""
         for _ in range(self.height):
             rect_str += str(self.print_symbol) * self.width + "\n"
-            return rect_str.rstrip()
+        return rect_str.rstrip()
 
     def __repr__(self):
         """new instance based on representation"""
