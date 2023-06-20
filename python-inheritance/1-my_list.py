@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Define the class"""
 
+
 class MyList(list):
     """_summary_
 
