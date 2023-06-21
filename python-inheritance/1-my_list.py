@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""Define the class"""
+"""Define class MyList"""
 
 
 class MyList(list):
-    """print list sorted"""
+    """define a function that print sorted list"""
     def print_sorted(self):
-        sorted_list = sorted(self)
-        print(sorted_list)
+        sortedList = sorted(self)
+        print(sortedList)
