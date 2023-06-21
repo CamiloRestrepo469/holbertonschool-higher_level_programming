@@ -3,7 +3,14 @@
 
 
 def is_same_class(obj, a_class):
-    if isinstance(obj , a_class):
-        return False
-    else:
-        return True
+    """_summary_
+
+    Args:
+        obj (_type_): _description_
+        a_class (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    return isinstance(obj, a_class)
+
