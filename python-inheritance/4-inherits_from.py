@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-"""Define the kind of class"""
+"""Define inheritance for classes"""
 
 
 def inherits_from(obj, a_class):
-    """return a instance of a class"""
-    if not type(obj) is a_class:
-        return True
-    else:
-        return False
+    """define type inheritance"""
+    return isinstance(obj, a_class) and type(obj) != a_class
