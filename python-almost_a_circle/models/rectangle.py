@@ -2,10 +2,12 @@
 """import class Base"""
 
 from models.base import Base
+
 """class Rectangle inherited from Base"""
 
 
 class Rectangle(Base):
+    """Base class for Rectangles"""
     def __init__(self, width, height, x=0, y=0, id=None):
         self.__width = width
         self.__height = height
@@ -13,28 +15,30 @@ class Rectangle(Base):
         self.__y = y
         super().__init__(id)
         
+        
+    """getter for the width and height"""
     @property
     def height(self):
         return self.__height
-    
+
     @height.setter
     def height(self, value):
         if value >= 0:
             self.__height = value
         else:
             raise ValueError("Value must be positive height")
-        
+
     @property
     def width(self):
         return self.__width
-    
+
     @width.setter
     def width(self, value):
         if value >= 0:
             self.__width = value
         else:
             raise ValueError("Value must be positive  with")
-        
+
     @property
     def x(self):
         return self.__x
@@ -45,11 +49,11 @@ class Rectangle(Base):
             self.__x = value
         else:
             raise ValueError("Value must be positive x")
-        
+
     @property
     def y(self):
         return self.__y
-    
+
     @y.setter
     def y(self, value):
         if value >= 0:
