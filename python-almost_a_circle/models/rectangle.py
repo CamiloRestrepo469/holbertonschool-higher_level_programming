@@ -8,15 +8,16 @@ from models.base import Base
 
 class Rectangle(Base):
     """Base class for Rectangles"""
+
     def __init__(self, width, height, x=0, y=0, id=None):
         self.__width = width
         self.__height = height
         self.__x = x
         self.__y = y
         super().__init__(id)
-        
-        
+
     """getter for the width and height"""
+
     @property
     def height(self):
         return self.__height
