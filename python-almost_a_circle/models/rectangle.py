@@ -16,11 +16,13 @@ class Rectangle(Base):
         self.__y = y
         super().__init__(id)
 
-    """getter for the width and height"""
+    """getter for the width"""
 
     @property
     def width(self):
         return self.__width
+
+    """setter for the width"""
 
     @width.setter
     def width(self, value):
@@ -31,22 +33,29 @@ class Rectangle(Base):
 
         self.__width = value
 
+    """getter for the height"""
+
     @property
     def height(self):
         return self.__height
+
+    """setter for the height"""
 
     @height.setter
     def height(self, value):
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
-
         elif value <= 0:
             raise ValueError("height must be > 0")
         self.__height = value
 
+    """getter for the x"""
+
     @property
     def x(self):
         return self.__x
+
+    """setter for the x"""
 
     @x.setter
     def x(self, value):
@@ -56,9 +65,13 @@ class Rectangle(Base):
             raise ValueError("x must be >= 0")
         self.__x = value
 
+    """getter for the y"""
+
     @property
     def y(self):
         return self.__y
+
+    """setter for the y"""
 
     @y.setter
     def y(self, value):
