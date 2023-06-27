@@ -88,5 +88,5 @@ class Rectangle(Base):
     
     """add method public"""
     def display(self):
-        for i in range(self.height):
-            print("#" * self.width)
+        for i in range(self.__height):
+            print("#" * self.__width)
