@@ -97,4 +97,20 @@ class Rectangle(Base):
     """update the Rectangle __str__ """
     
     def __str__(self):
-        return "[{}] ({}) {}/{} - {}/{}".format("Rectangle", self.id, self.x, self.y, self.width, self.height, self.height)  
+        return "[{}] ({}) {}/{} - {}/{}".format("Rectangle", self.id, self.__x, self.__y, self.__width, self.__height)  
+    
+    """method update"""
+    
+    def update(self, *args):
+        number = len(args)
+        if number >= 1:
+            self.id = args[0]
+        if number >= 2:
+            self.width = args[1]
+        if number >= 3:
+            self.height = args[2]
+        if number >= 4:
+            self.x = args[3]
+        if number >= 5:
+            self.y = args[4]
+        
