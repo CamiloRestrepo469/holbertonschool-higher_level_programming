@@ -95,22 +95,27 @@ class Rectangle(Base):
             print(" " * self.__x + "#" * self.__width)
 
     """update the Rectangle __str__ """
-    
+
     def __str__(self):
-        return "[{}] ({}) {}/{} - {}/{}".format("Rectangle", self.id, self.__x, self.__y, self.__width, self.__height)  
-    
+        return "[{}] ({}) {}/{} - {}/{}".format(
+            "Rectangle", self.id, self.__x, self.__y, self.__width, self.__height
+        )
+
     """method update"""
-    
-    def update(self, *args):
-        number = len(args)
-        if number >= 1:
-            self.id = args[0]
-        if number >= 2:
-            self.width = args[1]
-        if number >= 3:
-            self.height = args[2]
-        if number >= 4:
-            self.x = args[3]
-        if number >= 5:
-            self.y = args[4]
-        
+
+    def update(self, *args, **kwargs):
+        if args:
+            num_args = len(args)
+            if num_args >= 1:
+                self.id = args[0]
+            if num_args >= 2:
+                self.width = args[1]
+            if num_args >= 3:
+                self.height = args[2]
+            if num_args >= 4:
+                self.x = args[3]
+            if num_args >= 5:
+                self.y = args[4]
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
