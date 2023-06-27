@@ -16,13 +16,13 @@ class Rectangle(Base):
         self.__y = y
         super().__init__(id)
 
-    """getter for the width"""
+    """getter width"""
 
     @property
     def width(self):
         return self.__width
 
-    """setter for the width"""
+    """setter width"""
 
     @width.setter
     def width(self, value):
@@ -33,13 +33,13 @@ class Rectangle(Base):
 
         self.__width = value
 
-    """getter for the height"""
+    """getter height"""
 
     @property
     def height(self):
         return self.__height
 
-    """setter for the height"""
+    """setter height"""
 
     @height.setter
     def height(self, value):
@@ -49,13 +49,13 @@ class Rectangle(Base):
             raise ValueError("height must be > 0")
         self.__height = value
 
-    """getter for the x"""
+    """getter x"""
 
     @property
     def x(self):
         return self.__x
 
-    """setter for the x"""
+    """setter x"""
 
     @x.setter
     def x(self, value):
@@ -65,13 +65,13 @@ class Rectangle(Base):
             raise ValueError("x must be >= 0")
         self.__x = value
 
-    """getter for the y"""
+    """getter y"""
 
     @property
     def y(self):
         return self.__y
 
-    """setter for the y"""
+    """setter y"""
 
     @y.setter
     def y(self, value):
@@ -81,7 +81,7 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         self.__y = value
 
-    """method area"""
+    """add area to the Rectangle"""
 
     def area(self):
         return self.__width * self.__height
