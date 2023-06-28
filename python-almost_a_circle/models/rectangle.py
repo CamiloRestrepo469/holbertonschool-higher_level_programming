@@ -19,9 +19,8 @@ class Rectangle(Base):
     def width(self):
         return self.__width
 
-    """method setter"""@wid
-    th.setter
-
+    """method setter"""
+    @width.setter
     def width(self, value):
         self.validaciones("width", value, False)
         self.__width = value
@@ -31,9 +30,8 @@ class Rectangle(Base):
     def height(self):
         return self.__height
 
-    """method setter"""@heig
-    ht.setter
-
+    """method setter"""
+    @height.setter
     def height(self, value):
         self.validaciones("height", value, False)
         self.__height = value
