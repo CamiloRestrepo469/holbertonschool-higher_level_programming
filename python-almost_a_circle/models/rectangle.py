@@ -1,121 +1,106 @@
 #!/usr/bin/python3
-"""import class Base"""
-
+""" model with class rectangle"""
 from models.base import Base
-
-"""class Rectangle inherited from Base"""
 
 
 class Rectangle(Base):
-    """Base class for Rectangles"""
+    """class rectangle inherits Base"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        """ method __init__"""
         super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
         self.y = y
 
-    """getter width"""
-
+    """method getter"""
     @property
     def width(self):
         return self.__width
 
-    """setter width"""
+    """method setter"""@wid
+    th.setter
 
-    @width.setter
     def width(self, value):
-        if not isinstance(value, int):
-            raise TypeError("width must be an integer")
-        elif value <= 0:
-            raise ValueError("width must be > 0")
-
+        self.validaciones("width", value, False)
         self.__width = value
 
-    """getter height"""
-
+    """method getter"""
     @property
     def height(self):
         return self.__height
 
-    """setter height"""
+    """method setter"""@heig
+    ht.setter
 
-    @height.setter
     def height(self, value):
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
-        elif value <= 0:
-            raise ValueError("height must be > 0")
+        self.validaciones("height", value, False)
         self.__height = value
 
-    """getter x"""
-
+    """method getter"""
     @property
     def x(self):
         return self.__x
 
-    """setter x"""
-
+    """method setter"""
     @x.setter
     def x(self, value):
-        if not isinstance(value, int):
-            raise TypeError("x must be an integer")
-        elif value < 0:
-            raise ValueError("x must be >= 0")
+        self.validaciones("x", value)
         self.__x = value
 
-    """getter y"""
-
+    """method getter"""
     @property
     def y(self):
         return self.__y
 
-    """setter y"""
-
+    """method setter"""
     @y.setter
     def y(self, value):
-        if not isinstance(value, int):
-            raise TypeError("y must be an integer")
-        elif value < 0:
-            raise ValueError("y must be >= 0")
+        self.validaciones("y", value)
         self.__y = value
 
-    """add area to the Rectangle"""
+    def validaciones(self, name, value, eq=True):
+        """ validate the value"""
+        if type(value) is not int:
+            raise TypeError(f"{name} must be an integer")
+        if eq and value < 0:
+            raise ValueError(f"{name} must be >= 0")
+        elif not eq and value <= 0:
+            raise ValueError(f"{name} must be > 0")
 
     def area(self):
+        """return the area"""
         return self.__width * self.__height
 
-    """add method public"""
-
     def display(self):
-        for _ in range(self.__y):
-            print()
-        for _ in range(self.__height):
-            print(" " * self.__x + "#" * self.__width)
-
-    """update the Rectangle __str__ """
+        """Display the area"""
+        print(self.__y * '\n', end='')
+        for j in range(self.__height):
+            print(str(self.__x * ' ') + str(self.__width * '#'))
 
     def __str__(self):
-        return "[{}] ({}) {}/{} - {}/{}".format(
-            "Rectangle", self.id, self.__x, self.__y, self.__width, self.__height
-        )
-
-    """method update"""
+        """return info about rectangle"""
+        id = self.id
+        x = self.__x
+        y = self.__y
+        width = self.__width
+        height = self.__height
+        return f"[Rectangle] ({id}) {x}/{y} - {width}/{height}"
 
     def update(self, *args, **kwargs):
-        if args:
-            num_args = len(args)
-            if num_args >= 1:
-                self.id = args[0]
-            if num_args >= 2:
-                self.width = args[1]
-            if num_args >= 3:
-                self.height = args[2]
-            if num_args >= 4:
-                self.x = args[3]
-            if num_args >= 5:
-                self.y = args[4]
-        else:
-            for key, value in kwargs.items():
-                setattr(self, key, value)
+        """number of arguments"""
+        argc = len(args)
+        kwargc = len(kwargs)
+        modif_attrs = ['id', 'width', 'height', 'x', 'y']
+
+        if argc > 5:
+            argc = 5
+
+        if argc > 0:
+            for i in range(argc):
+                setattr(self, modif_attrs[i], args[i])
+        elif kwargc > 0:
+            for k, v in kwargs.items():
+                if k in modif_attrs:
+                    setattr(self, k, v)
