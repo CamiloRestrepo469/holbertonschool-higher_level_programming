@@ -4,19 +4,45 @@ import unittest
 from models.base import Base
 
 class TestBase(unittest.TestCase):
-    def test_id_generation(self):
-        b1 = Base()
-        b2 = Base()
-        b3 = Base(42)
-        b4 = Base()
 
-        self.assertEqual(b1.id, 1)
-        self.assertEqual(b2.id, 2)
-        self.assertEqual(b3.id, 42)
-        self.assertEqual(b4.id, 3)
+    def test_base_id_auto_increment(self):
+        base1 = Base()
+        base2 = Base()
+        self.assertEqual(base1.id, 1)
+        self.assertEqual(base2.id, 2)
+
+    def test_base_id_specified(self):
+        base = Base(89)
+        self.assertEqual(base.id, 89)
+
+    def test_to_json_string_none(self):
+        json_string = Base.to_json_string(None)
+        self.assertEqual(json_string, '[]')
+
+    def test_to_json_string_empty_list(self):
+        json_string = Base.to_json_string([])
+        self.assertEqual(json_string, '[]')
+
+    def test_to_json_string_list_with_id(self):
+        json_string = Base.to_json_string([{'id': 12}])
+        self.assertEqual(json_string, '[{"id": 12}]')
+
+    def test_from_json_string_none(self):
+        obj_list = Base.from_json_string(None)
+        self.assertEqual(obj_list, [])
+
+    def test_from_json_string_empty_string(self):
+        obj_list = Base.from_json_string("[]")
+        self.assertEqual(obj_list, [])
+
+    def test_from_json_string_list_with_id(self):
+        obj_list = Base.from_json_string('[{"id": 89}]')
+        self.assertEqual(obj_list, [{'id': 89}])
 
 if __name__ == '__main__':
     unittest.main()
+
+
 
 """En este ejemplo, definimos una clase de prueba TestBase que hereda de unittest.TestCase. Dentro de esta clase, definimos dos métodos de prueba:
 
