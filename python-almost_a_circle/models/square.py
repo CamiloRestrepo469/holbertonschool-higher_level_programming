@@ -46,3 +46,15 @@ class Square(Rectangle):
             for k, v in kwargs.items():
                 if k in modif_attrs:
                     setattr(self, k, v)
+
+    """funtion dictionary"""
+
+    def to_dictionary(self):
+        """return a dictionary"""
+
+        return {
+            "id": self.id,
+            "x": self.x,
+            "size": self.size,
+            "y": self.y,
+        }
