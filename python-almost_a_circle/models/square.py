@@ -30,17 +30,17 @@ class Square(Rectangle):
 
     """method update"""
     def update(self, *args, **kwargs):
+        modif_attrs = ['id', 'size', 'x', 'y']
+
         if args:
-            if len(args) >= 1:
-                self.id = args[0]
-            if len(args) >= 2:
-                self.size = args[1]
-            if len(args) >= 3:
-                self.x = args[2]
-            if len(args) >= 4:
-                self.y = args[3]
+            for i, value in enumerate(args[:len(modif_attrs)]):
+                setattr(self, modif_attrs[i], value)
         elif kwargs:
             for key, value in kwargs.items():
-                setattr(self, key, value)
+                if key in modif_attrs:
+                    setattr(self, key, value)
+
+    def __str__(self):
+        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
 
             
