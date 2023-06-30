@@ -28,17 +28,13 @@ class Base:
     """class method"""
     @classmethod
     def save_to_file(cls, list_objs):
-        """create is cls"""
-        file_name = cls.__name__ + ".json"
-        json_list = []
-
-        if list_objs is not None:
-            for obj in list_objs:
-                json_list.append(obj.to_dictionary())
-
-        with open(file_name, "w") as file:
-            file.write(cls.to_json_string(json_list))
-
+        filename = cls.__name__ + '.json'
+        with open(filename, 'w') as json_file:
+            if list_objs is None:
+                json_file.write("[]")
+            else:
+                list_dict = [o.to_dictionary() for o in list_objs]
+                json_file.write(Base.to_json_string(list_dict))
 
 """
  Base:
