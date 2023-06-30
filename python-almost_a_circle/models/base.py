@@ -17,14 +17,28 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
-    """json"""
+    """static method"""
     @staticmethod
     def to_json_string(list_dictionaries):
+        """create json"""
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
         else:
             return json.dumps(list_dictionaries)
+        
+    """class method""" 
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """create is cls"""
+        file_name = cls.__name__ + ".json"
+        json_list = []
 
+        if list_objs is not None:
+            for obj in list_objs:
+                json_list.append(obj.to_dictionary())
+
+        with open(file_name, "w") as file:
+            file.write(cls.to_json_string(json_list))
 
 """
  Base:
