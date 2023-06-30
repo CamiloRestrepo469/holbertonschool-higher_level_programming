@@ -17,7 +17,6 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
-    """static method"""
     @staticmethod
     def to_json_string(list_dictionaries):
         import json
@@ -25,7 +24,6 @@ class Base:
             return "[]"
         return json.dumps(list_dictionaries)
 
-    """class method"""
     @classmethod
     def save_to_file(cls, list_objs):
         filename = cls.__name__ + '.json'
@@ -42,30 +40,26 @@ class Base:
         if json_string is None or len(json_string) == 0:
             return []
         return json.loads(json_string)
-    
 
     @classmethod
     def create(cls, **dictionary):
-        if cls.__name__ == "Rectangle":
-            dummy = cls(1, 1)  # Create a dummy instance of Rectangle with default values
-        elif cls.__name__ == "Square":
-            dummy = cls(1)  # Create a dummy instance of Square with default values
+        if cls.__name__ == 'Rectangle':
+            dummy = cls(1, 1)
+        elif cls.__name__ == 'Square':
+            dummy = cls(1)
         else:
-            dummy = cls()  # Create a dummy instance of the class with no default values
-
-        dummy.update(**dictionary)  # Use the update method to set the attributes from the dictionary
+            dummy = None
+        dummy.update(**dictionary)
         return dummy
-    
+
     @classmethod
     def load_from_file(cls):
-        filename = cls.__name__ + ".json"  # Filename based on class name
+        filename = str(cls.__name__) + ".json"
         try:
-            with open(filename, "r") as file:
-                json_data = file.read()  # Read the JSON data from the file
-                dictionaries = cls.from_json_string(json_data)  # Convert JSON to list of dictionaries
-                instances = [cls.create(**d) for d in dictionaries]  # Create instances from dictionaries
-                return instances
-        except FileNotFoundError:
+            with open(filename, "r") as jsonfile:
+                list_dicts = Base.from_json_string(jsonfile.read())
+                return [cls.create(**d) for d in list_dicts]
+        except IOError:
             return []
 
 
