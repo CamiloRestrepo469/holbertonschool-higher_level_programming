@@ -25,8 +25,8 @@ class Base:
             return "[]"
         else:
             return json.dumps(list_dictionaries)
-        
-    """class method""" 
+
+    """class method"""
     @classmethod
     def save_to_file(cls, list_objs):
         """create is cls"""
@@ -39,6 +39,7 @@ class Base:
 
         with open(file_name, "w") as file:
             file.write(cls.to_json_string(json_list))
+
 
 """
  Base:
