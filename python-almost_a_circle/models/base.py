@@ -1,14 +1,15 @@
 #!/usr/bin/python3
-"""import json"""
-import json
-"""create a new Base"""
+"""Define the Base Class"""
+
+import turtle
+from turtle import *
 
 
 class Base:
-    """Base class for"""
-
+    """constructor"""
     __nb_objects = 0
-    """Number of objects"""
+
+    """Function Initialized"""
 
     def __init__(self, id=None):
         if id is not None:
@@ -61,8 +62,6 @@ class Base:
                 return [cls.create(**d) for d in list_dicts]
         except IOError:
             return []
-
-
 
 """
  Base:
