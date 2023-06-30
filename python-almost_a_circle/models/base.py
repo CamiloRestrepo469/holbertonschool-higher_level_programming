@@ -55,6 +55,18 @@ class Base:
 
         dummy.update(**dictionary)  # Use the update method to set the attributes from the dictionary
         return dummy
+    
+    @classmethod
+    def load_from_file(cls):
+        filename = cls.__name__ + ".json"  # Filename based on class name
+        try:
+            with open(filename, "r") as file:
+                json_data = file.read()  # Read the JSON data from the file
+                dictionaries = cls.from_json_string(json_data)  # Convert JSON to list of dictionaries
+                instances = [cls.create(**d) for d in dictionaries]  # Create instances from dictionaries
+                return instances
+        except FileNotFoundError:
+            return []
 
 
 
