@@ -36,6 +36,14 @@ class Base:
                 list_dict = [o.to_dictionary() for o in list_objs]
                 json_file.write(Base.to_json_string(list_dict))
 
+    
+    @staticmethod
+    def from_json_string(json_string):
+        import json
+        if json_string is None or len(json_string) == 0:
+            return []
+        return json.loads(json_string)
+
 """
  Base:
 ```
